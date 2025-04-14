@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-if="task">
     <div class="header">
-      <el-button @click="router.back()" link>
+      <el-button @click="router.back()" type="text">
         <el-icon><ArrowLeft /></el-icon>返回</el-button
       >
       <h2>任务详情</h2>
@@ -73,7 +73,7 @@ const confirmDelete = () => {
     confirmButtonText: "确定",
     cancelButtonText: "取消",
     type: "warning",
-    confirmButtonClass: "custom-confirm-button",
+    // confirmButtonClass: "custom-confirm-button",
   }).then(() => {
     todoStore.deleteTask(task.value.id);
     router.push("/");
@@ -109,7 +109,7 @@ const cancelEdit = () => {
 }
 
 .header h2 {
-  margin: 0;
+  margin: 0 auto;
   color: #67c23a;
 }
 
@@ -126,13 +126,19 @@ const cancelEdit = () => {
   justify-content: center;
   gap: 10px;
 }
-.el-message-box__btns .el-button--primary {
-  background-color: #67c23a;
-  /* border-color: #67c23a !important; */
-}
 
-.el-button {
-  color: #67c23a;
+.el-button--text {
+  color: #67c23a !important;
 }
 </style>
 
+<style>
+.el-button--primary {
+  background: #67c23a;
+  border-color: #67c23a;
+}
+.el-button--primary:hover {
+  background: #9fd882;
+  border-color: #9fd882;
+}
+</style>
