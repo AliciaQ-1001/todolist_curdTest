@@ -73,7 +73,8 @@ const confirmDelete = () => {
     confirmButtonText: "确定",
     cancelButtonText: "取消",
     type: "warning",
-    // confirmButtonClass: "custom-confirm-button",
+    confirmButtonClass: "custom-confirm-button",
+    cancelButtonClass: "custom-cancel-button",
   }).then(() => {
     todoStore.deleteTask(task.value.id);
     router.push("/");
@@ -133,12 +134,18 @@ const cancelEdit = () => {
 </style>
 
 <style>
-.el-button--primary {
+.custom-cancel-button:hover {
+  background: #d8f0cc;
+  border-color: #d8f0cc;
+  color: #67c23a;
+}
+.custom-confirm-button {
   background: #67c23a;
   border-color: #67c23a;
 }
-.el-button--primary:hover {
+.custom-confirm-button:hover {
   background: #9fd882;
   border-color: #9fd882;
+  color: #fff;
 }
 </style>
